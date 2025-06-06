@@ -83,9 +83,12 @@ def main():
     # Prime the memory with an initial exchange to set the context
     agent.memory.chat_memory.add_message(system_message)
     # agent.run("Help the user with any requests presented")
+
+    # Clear the console for a clean start
+    os.system('cls' if os.name == 'nt' else 'clear')
     
     print("Agent initialized! Type 'exit' to quit.")
-    print("You can ask questions or request information about the weather.")
+    print("You can ask questions about the container, perform actions in the container, or even get information about the weather!")
     
     # Simple interaction loop
     while True:
