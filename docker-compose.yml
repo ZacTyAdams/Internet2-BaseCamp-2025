@@ -1,0 +1,21 @@
+services:
+  ollama:
+    build:
+      context: ollama
+      dockerfile: Dockerfile
+    ports:
+      - "11434:11434"
+
+  python-app:
+    build: 
+      context: app
+      dockerfile: Dockerfile
+    volumes:
+      - .:/repo
+    working_dir: /repo
+    # command: sleep infinity
+    depends_on:
+      - ollama
+
+volumes:
+  ollama_data:
